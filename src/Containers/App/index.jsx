@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import AppLogo from "./AppLogo";
-import Card from "./Card";
+import AppLogo from "../../Components/AppLogo";
+import Button from "../../Components/Button";
+import Card from "../../Components/Card";
 
-import "./assets/source-sans.css";
-import "./assets/sw-glyphicons.css";
-import "./assets/sw-webfonts.css";
-
-const bkgApp = require("./assets/imgs/bkg-app.svg");
+const bkgApp = require("./bkg-app.svg");
 
 class App extends Component {
   constructor(props) {
@@ -90,13 +87,15 @@ class App extends Component {
     return (
       <StyledApp>
         <Header>
-          <AppLogo title="Star Wars" subtitle="Desafio B2W" />
+          <AppLogo title="star wars" subtitle="desafio b2w" />
         </Header>
         <Content>
           {!count &&
-            loading && <button onClick={this.countPlanets}>Start</button>}
+            loading && (
+              <Button onClick={this.countPlanets} value="press start" />
+            )}
           {planet && <Card loading={loading} planet={planet} />}
-          {planet && <button onClick={this.getPlanet}>Next</button>}
+          {planet && <Button onClick={this.getPlanet} value="next planet" />}
         </Content>
       </StyledApp>
     );
@@ -108,6 +107,7 @@ const StyledApp = styled.div`
   padding: 20px;
   height: calc(100vh - 40px); /* 40px padding top & bottom */
   display: flex;
+  flex-direction: column;
 `;
 
 const Header = styled.header``;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const bkgCard = require("./assets/imgs/bkg-card.svg");
+const bkgCard = require("./bkg-card.jpg");
 class Card extends Component {
   componentDidMount() {
     console.log("Loading: " + this.props.loading);
@@ -20,7 +20,7 @@ class Card extends Component {
           <Terrain>{planet.terrain}</Terrain>
           <Climate>{planet.climate}</Climate>
         </Content>
-        <LogoCard>Star wars</LogoCard>
+        <LogoCard>star wars</LogoCard>
       </StyledCard>
     );
   }
@@ -44,9 +44,9 @@ const StyledCard = styled.div`
   &:before {
     content: " ";
     display: block;
-    border: solid #a4988a;
+    border: solid #84786c;
     position: absolute;
-    border-width: 0 1.5px 1.5px 0;
+    border-width: 0 2px 2px 0;
     top: 10px;
     right: 10px;
     bottom: 10px;
@@ -72,17 +72,17 @@ const Planet = styled.h2`
   font-weight: 200;
   font-family: "SourceSansPro", sans-serif;
   &:before {
-    content: "Planet";
-    font-family: "starwarsWebfont", sans-serif;
+    content: "planet";
+    font-family: "StarWars", sans-serif;
     font-size: 20px;
     line-height: 20px;
   }
   &:after {
-    content: "Featured in ${props => (props.films.length)} films";
-    font-size: 12px;
-    line-height: 12px;
-    font-weight: 700;
+    content: "Featured in ${props => props.films.length} films";
     font-family: "SourceSansPro", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
   }
 `;
 
@@ -123,16 +123,15 @@ const Climate = Meta.extend`
 `;
 
 const LogoCard = styled.div`
-  font-family: "starwarsWebfont", sans-serif;
-  color: #84786c;
-  position: absolute;
-  letter-spacing: -1px;
-  right: 3px;
+  background: transparent url(${bkgCard}) repeat -10px 30px;
+  background-size: cover;
+  border-radius: 10px 0 0 0;
   bottom: 3px;
-  background: transparent url(${bkgCard}) repeat;
-  padding: 10px 10px 4px 10px;
-  background-size: 114%;
-  background-position: -5px -20px;
+  color: #84786c;
+  font-family: "StarWars", sans-serif;
+  padding: 0 10px 1px 10px;
+  position: absolute;
+  right: 3px;
 `;
 
 export default Card;
