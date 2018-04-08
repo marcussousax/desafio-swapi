@@ -105,6 +105,10 @@ const StyledApp = styled.div`
   height: calc(100vh - 40px); /* 40px padding top & bottom */
   display: flex;
   flex-direction: row;
+  @media (max-width: 768px) {
+    height: 100vh;
+    flex-direction: column;
+  }
 `;
 
 const Header = styled.header``;
@@ -114,6 +118,9 @@ const Content = styled.div`
   justify-content: space-evenly;
   align-items: center;
   flex: 1;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export default App;

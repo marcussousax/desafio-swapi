@@ -36,6 +36,11 @@ const StyledCard = styled.div`
   border: 5px solid #FAF8DF;
   width: 440px;
   height: 640px;
+  @media (max-width: 768px) {
+    background-size: cover;
+    height: auto;
+    width: 70%;
+  }
   position: relative;
   text-transform: uppercase;
   box-shadow: 0 0 30px 0px #000;
