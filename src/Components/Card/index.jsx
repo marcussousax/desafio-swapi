@@ -74,6 +74,10 @@ const Planet = styled.h2`
   flex-direction: column;
   margin: 30px 0;
   font-size: 60px;
+  @media (max-width: 768px) {
+    font-size: 40px;
+    line-height: 40px;
+  }
   line-height: 60px;
   font-weight: 200;
   font-family: "SourceSansPro", sans-serif;
@@ -98,6 +102,10 @@ const Planet = styled.h2`
 const Meta = styled.p`
   font-size: 30px;
   line-height: 33px;
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 23px;
+  }
   font-weight: 200;
   font-family: "SourceSansPro", sans-serif;
   margin: 10px 0;
