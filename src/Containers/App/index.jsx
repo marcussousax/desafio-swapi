@@ -19,6 +19,9 @@ class App extends Component {
   }
 
   countPlanets() {
+    this.setState({
+      loading: true
+    });
     return axios
       .get("https://swapi.co/api/planets")
       .then(response => {
@@ -26,23 +29,16 @@ class App extends Component {
           loading: false,
           count: response.data.count
         });
-        console.log(this.state.count);
       })
       .then(this.getPlanet)
       .catch(function(error) {
         if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
         } else if (error.request) {
-          // The request was made but no response was received
-          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-          // http.ClientRequest in node.js
           console.log(error.request);
         } else {
-          // Something happened in setting up the request that triggered an Error
           console.log("Error", error.message);
         }
         console.log(error.config);
@@ -64,18 +60,12 @@ class App extends Component {
       })
       .catch(function(error) {
         if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
         } else if (error.request) {
-          // The request was made but no response was received
-          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-          // http.ClientRequest in node.js
           console.log(error.request);
         } else {
-          // Something happened in setting up the request that triggered an Error
           console.log("Error", error.message);
         }
         console.log(error.config);
@@ -86,16 +76,22 @@ class App extends Component {
     const { loading, planet, count } = this.state;
     return (
       <StyledApp>
-        <Header>
-          <AppLogo title="star wars" subtitle="desafio b2w" />
-        </Header>
         <Content>
+          <Header>
+            <AppLogo title="star wars" subtitle="desafio b2w" />
+          </Header>
           {!count &&
             loading && (
               <Button onClick={this.countPlanets} value="press start" />
             )}
           {planet && <Card loading={loading} planet={planet} />}
-          {planet && <Button onClick={this.getPlanet} value="next planet" />}
+          {planet && (
+            <Button
+              loading={loading}
+              onClick={this.getPlanet}
+              value="next planet"
+            />
+          )}
         </Content>
       </StyledApp>
     );
@@ -107,14 +103,14 @@ const StyledApp = styled.div`
   padding: 20px;
   height: calc(100vh - 40px); /* 40px padding top & bottom */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `;
 
 const Header = styled.header``;
 const Content = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex: 1;
 `;

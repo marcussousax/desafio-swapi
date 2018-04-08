@@ -3,9 +3,13 @@ import styled from "styled-components";
 
 class Button extends Component {
   render() {
+    const { loading, value, onClick } = this.props;
+
+    const loadingText = "Loading";
+
     return (
-      <StyledButton onClick={this.props.onClick}>
-        <span>{this.props.value}</span>
+      <StyledButton className={loading ? "is-loading" : null} onClick={onClick}>
+        <span>{loading ? loadingText : value}</span>
       </StyledButton>
     );
   }
@@ -23,6 +27,7 @@ const StyledButton = styled.button`
     margin: 10px;
     padding: 0;
     transition: box-shadow 0.1s ease-in-out;
+    width: 200px;
   }
 
   & span {
@@ -31,13 +36,14 @@ const StyledButton = styled.button`
     box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.15);
     display: inline-block;
     font-family: "SourceSansPro", sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1;
     padding: 20px 30px;
     text-shadow: 0 -1px 1px rgba(175, 49, 95, 0.7);
     text-transform: uppercase;
     transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    width: 140px;
   }
 
   &:hover span {
@@ -54,6 +60,13 @@ const StyledButton = styled.button`
 
   &:active span {
     transform: translate(0, 4px);
+  }
+
+  &.is-loading {
+    opacity: 0.7;
+    span {
+      transform: translate(0, 4px);
+    }
   }
 `;
 

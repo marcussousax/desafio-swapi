@@ -14,7 +14,7 @@ class AppLogo extends Component {
 
 const Container = styled.div`
   font-family: 'StarWars', sans-serif;
-  width: 110px;
+  width: 150px;
   text-align: center;
 `;
 
@@ -22,14 +22,15 @@ const Title = styled.h1`
   color: #ffe115;
   text-transform: uppercase;
   margin: 0;
-  line-height: 25px;
+  font-size: 50px;
+  line-height: 39px;
   text-align: center;
 `;
 
 const SubTitle = styled.span`
   color: #fff;
   margin: 0;
-  font-size: 12px;
+  font-size: 18px;
 `;
 
 export default AppLogo;
