@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const bkgCard = require("./bkg-card.jpg");
+
 class Card extends Component {
   componentDidMount() {
     console.log("Loading: " + this.props.loading);
@@ -32,7 +33,7 @@ const StyledCard = styled.div`
   opacity: ${props => (props.loading ? "0.3" : "1")};
   background: #282226 url(${bkgCard}) no-repeat center;
   background-size: 99%;
-  border: 5px solid #fff;
+  border: 5px solid #FAF8DF;
   width: 440px;
   height: 640px;
   position: relative;

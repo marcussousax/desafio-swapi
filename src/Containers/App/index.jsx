@@ -80,11 +80,12 @@ class App extends Component {
           <Header>
             <AppLogo title="star wars" subtitle="desafio b2w" />
           </Header>
+          {planet && <Card loading={loading} planet={planet} />}
           {!count &&
             loading && (
               <Button onClick={this.countPlanets} value="press start" />
             )}
-          {planet && <Card loading={loading} planet={planet} />}
+
           {planet && (
             <Button
               loading={loading}
