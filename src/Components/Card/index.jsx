@@ -72,11 +72,13 @@ const Planet = styled.h2`
   line-height: 60px;
   font-weight: 200;
   font-family: "SourceSansPro", sans-serif;
+  text-indent: -5px;
   &:before {
     content: "planet";
     font-family: "StarWars", sans-serif;
     font-size: 20px;
     line-height: 20px;
+    text-indent: 5px;
   }
   &:after {
     content: "Featured in ${props => props.films.length} films";
@@ -84,12 +86,13 @@ const Planet = styled.h2`
     font-size: 12px;
     font-weight: 700;
     line-height: 12px;
+    text-indent: 5px;
   }
 `;
 
 const Meta = styled.p`
   font-size: 30px;
-  line-height: 30px;
+  line-height: 33px;
   font-weight: 200;
   font-family: "SourceSansPro", sans-serif;
   margin: 10px 0;
@@ -102,6 +105,7 @@ const Meta = styled.p`
     font-weight: 700;
     font-family: "SourceSansPro", sans-serif;
     text-transform: uppercase;
+    text-indent: 3px;
   }
 `;
 

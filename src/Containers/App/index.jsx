@@ -83,7 +83,7 @@ class App extends Component {
           {planet && <Card loading={loading} planet={planet} />}
           {!count &&
             loading && (
-              <Button onClick={this.countPlanets} value="press start" />
+              <Button onClick={this.countPlanets} value="start" />
             )}
 
           {planet && (
