@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import AppLogo from "../../Components/AppLogo";
-import Button from "../../Components/Button";
-import Card from "../../Components/Card";
+import React, { Component } from 'react';
+import axios from 'axios';
+import styled from 'styled-components';
+import AppLogo from '../../Components/AppLogo';
+import Button from '../../Components/Button';
+import Card from '../../Components/Card';
 
-const bkgApp = require("./bkg-app.svg");
+const bkgApp = require('./bkg-app.svg');
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class App extends Component {
       loading: true
     });
     return axios
-      .get("https://swapi.co/api/planets")
+      .get('https://swapi.co/api/planets')
       .then(response => {
         this.setState({
           loading: false,
@@ -39,7 +39,7 @@ class App extends Component {
         } else if (error.request) {
           console.log(error.request);
         } else {
-          console.log("Error", error.message);
+          console.log('Error', error.message);
         }
         console.log(error.config);
       });
@@ -66,7 +66,7 @@ class App extends Component {
         } else if (error.request) {
           console.log(error.request);
         } else {
-          console.log("Error", error.message);
+          console.log('Error', error.message);
         }
         console.log(error.config);
       });
@@ -99,23 +99,27 @@ class App extends Component {
 
 const StyledApp = styled.div`
   background: #282226 url(${bkgApp}) no-repeat bottom left;
-  padding: 20px;
-  height: calc(100vh - 40px); /* 40px padding top & bottom */
   display: flex;
   flex-direction: row;
+  height: calc(100vh - 40px); /* 40px padding top & bottom */
+  padding: 20px;
+
   @media (max-width: 768px) {
-    height: 100vh;
+    background-position: center;
+    background-size: cover;
     flex-direction: column;
+    height: 100vh;
+    padding: 0;
   }
 `;
 
 const Header = styled.header``;
 const Content = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
   flex: 1;
+  justify-content: space-evenly;
   @media (max-width: 768px) {
     flex-direction: column;
   }

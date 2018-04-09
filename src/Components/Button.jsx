@@ -18,8 +18,8 @@ class Button extends Component {
 const StyledButton = styled.button`
   & {
     background: transparent;
-    border: none;
     border-radius: 4px;
+    border: none;
     box-shadow: 0 8px 0 #c3ab0c, 0 15px 20px rgba(0, 0, 0, 0.35);
     color: #fff;
     cursor: pointer;
@@ -40,7 +40,7 @@ const StyledButton = styled.button`
     font-weight: 700;
     line-height: 1;
     padding: 20px 30px;
-    text-shadow: 0 -1px 1px rgba(175, 49, 95, 0.7);
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.7);
     text-transform: uppercase;
     transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
     width: 140px;
