@@ -18,10 +18,11 @@ class App extends Component {
     this.getPlanet = this.getPlanet.bind(this);
   }
 
+  componentDidMount() {
+    this.countPlanets();
+  }
+
   countPlanets() {
-    this.setState({
-      loading: true
-    });
     return axios
       .get('https://swapi.co/api/planets')
       .then(response => {
@@ -30,26 +31,16 @@ class App extends Component {
           count: response.data.count
         });
       })
-      .then(this.getPlanet)
-      .catch(function(error) {
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log('Error', error.message);
-        }
-        console.log(error.config);
+      .catch(error => {
+        console.log(error);
       });
   }
 
   getPlanet() {
-    const planetId = Math.floor(Math.random() * this.state.count + 1);
     this.setState({
       loading: true
     });
+    const planetId = Math.floor(Math.random() * this.state.count + 1);
     return axios
       .get(`https://swapi.co/api/planets/${planetId}`)
       .then(response => {
@@ -58,22 +49,13 @@ class App extends Component {
           loading: false
         });
       })
-      .catch(function(error) {
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log('Error', error.message);
-        }
-        console.log(error.config);
+      .catch(error => {
+        console.log(error);
       });
   }
 
   render() {
-    const { loading, planet, count } = this.state;
+    const { loading, planet } = this.state;
     return (
       <StyledApp>
         <Content>
@@ -81,16 +63,11 @@ class App extends Component {
             <AppLogo title="star wars" subtitle="desafio b2w" />
           </Header>
           {planet && <Card loading={loading} planet={planet} />}
-          {!count &&
-            loading && <Button onClick={this.countPlanets} value="start" />}
-
-          {planet && (
-            <Button
-              loading={loading}
-              onClick={this.getPlanet}
-              value="next planet"
-            />
-          )}
+          <Button
+            loading={loading}
+            onClick={this.getPlanet}
+            value={planet ? 'Next Planet' : 'Start'}
+          />
         </Content>
       </StyledApp>
     );
