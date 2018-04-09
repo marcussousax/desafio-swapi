@@ -5,7 +5,6 @@ const bkgCard = require("./bkg-card.jpg");
 
 class Card extends Component {
   componentDidMount() {
-    console.log("Loading: " + this.props.loading);
     return this.setState({
       loading: false
     });
