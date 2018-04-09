@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import NumberFormat from 'react-number-format';
 import styled from "styled-components";
 
 const bkgCard = require("./bkg-card.jpg");
@@ -16,7 +17,7 @@ class Card extends Component {
       <StyledCard loading={loading}>
         <Content>
           <Planet films={planet.films}>{planet.name}</Planet>
-          <Population>{planet.population}</Population>
+          <Population><NumberFormat value={planet.population} displayType={'text'} isNumericString={true} thousandSeparator="." decimalSeparator="," /></Population>
           <Terrain>{planet.terrain}</Terrain>
           <Climate>{planet.climate}</Climate>
         </Content>
