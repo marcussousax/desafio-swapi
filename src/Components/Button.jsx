@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import styled from 'styled-components';
 
 class Button extends Component {
   render() {
     const { loading, value, onClick } = this.props;
 
-    const loadingText = "Loading";
+    const loadingText = 'Loading';
 
     return (
-      <StyledButton className={loading ? "is-loading" : null} onClick={onClick}>
+      <StyledButton className={loading ? 'is-loading' : null} onClick={onClick}>
         <span>{loading ? loadingText : value}</span>
       </StyledButton>
     );
@@ -35,7 +35,7 @@ const StyledButton = styled.button`
     border-radius: 4px;
     box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.15);
     display: inline-block;
-    font-family: "SourceSansPro", sans-serif;
+    font-family: 'SourceSansPro', sans-serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 1;
