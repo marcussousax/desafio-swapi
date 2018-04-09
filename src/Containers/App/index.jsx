@@ -119,7 +119,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: row;
   flex: 1;
-  justify-content: space-around;
+  justify-content: space-evenly;
   @media (max-width: 768px) {
     flex-direction: column;
   }
