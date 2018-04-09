@@ -1,72 +1,117 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import AppLogo from '../../Components/AppLogo';
-import Button from '../../Components/Button';
-import Card from '../../Components/Card';
 
-const bkgApp = require('./bkg-app.svg');
+import { AppLogo, Button, Card } from 'Components';
 
-class App extends Component {
+const BKG_APP = require('./bkg-app.svg');
+
+export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      loading: true
-    };
+    const storagePlanets = window.localStorage.getItem('planets');
 
-    this.countPlanets = this.countPlanets.bind(this);
-    this.getPlanet = this.getPlanet.bind(this);
+    this.state = {
+      loading: true,
+      planetIdList: [],
+      currentRandomPlanet: null,
+      planets: storagePlanets ? JSON.parse(storagePlanets) : {}
+    };
   }
+
+  static defaultProps = {
+    cacheOnStorage: true,
+    apiURL: 'https://swapi.co/api/planets/'
+  };
 
   componentDidMount() {
-    this.countPlanets();
+    this.getPlanetsCount(this.props);
   }
 
-  countPlanets() {
+  getPlanetsCount = ({ apiURL }) => {
     return axios
-      .get('https://swapi.co/api/planets')
-      .then(response => {
+      .get(apiURL)
+      .then(({ data: { count } }) => {
         this.setState({
           loading: false,
-          count: response.data.count
+          planetIdList: this.createPlanetIdList(count)
         });
       })
       .catch(error => {
         console.log(error);
       });
+  };
+
+  createPlanetIdList(planetsCount) {
+    return Array(planetsCount)
+      .fill()
+      .map((e, i) => i + 1);
   }
 
-  getPlanet() {
+  getPlanet = () => {
+    const { planetIdList, planets, loading } = this.state;
+    const { apiURL } = this.props;
+
+    if (loading) {
+      return;
+    }
+
+    const planetId = Math.floor(Math.random() * planetIdList.length) + 1;
+    const inMemoryPlanet = planets[planetId];
+
+    if (inMemoryPlanet) {
+      this.updateRandomPlanet(inMemoryPlanet, planets, planetId);
+      return;
+    }
+
     this.setState({
       loading: true
     });
-    const planetId = Math.floor(Math.random() * this.state.count + 1);
+
     return axios
-      .get(`https://swapi.co/api/planets/${planetId}`)
-      .then(response => {
-        this.setState({
-          planet: response.data,
-          loading: false
-        });
-      })
+      .get(`${apiURL}${planetId}`)
+      .then(({ data: randomPlanet }) =>
+        this.updateRandomPlanet(randomPlanet, planets, planetId)
+      )
       .catch(error => {
         console.log(error);
       });
+  };
+
+  updateRandomPlanet(randomPlanet, planets, planetId) {
+    const updatedPlanets = {
+      ...planets,
+      [planetId]: randomPlanet
+    };
+    const { cacheOnStorage } = this.props;
+
+    if (cacheOnStorage) {
+      window.localStorage.setItem('planets', JSON.stringify(updatedPlanets));
+    }
+
+    this.setState({
+      currentRandomPlanet: randomPlanet,
+      planets: updatedPlanets,
+      loading: false
+    });
   }
 
   render() {
-    const { loading, planet } = this.state;
+    const { loading, currentRandomPlanet } = this.state;
+
     return (
       <StyledApp>
         <Content>
           <Header>
             <AppLogo title="star wars" subtitle="desafio b2w" />
           </Header>
-          {planet && <Card loading={loading} planet={planet} />}
+          {currentRandomPlanet && (
+            <Card loading={loading} planet={currentRandomPlanet} />
+          )}
           <Button
             loading={loading}
             onClick={this.getPlanet}
-            value={planet ? 'Next Planet' : 'Start'}
+            value={currentRandomPlanet ? 'Next Planet' : 'Start'}
           />
         </Content>
       </StyledApp>
@@ -75,7 +120,7 @@ class App extends Component {
 }
 
 const StyledApp = styled.div`
-  background: #282226 url(${bkgApp}) no-repeat bottom left;
+  background: #282226 url(${BKG_APP}) no-repeat bottom left;
   display: flex;
   flex-direction: row;
   height: calc(100vh - 40px); /* 40px padding top & bottom */
@@ -101,5 +146,3 @@ const Content = styled.div`
     flex-direction: column;
   }
 `;
-
-export default App;
