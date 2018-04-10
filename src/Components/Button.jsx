@@ -24,7 +24,6 @@ const StyledButton = styled.button`
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    margin: 10px;
     padding: 0;
     transition: box-shadow 0.1s ease-in-out;
     width: 200px;
