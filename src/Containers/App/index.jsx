@@ -10,10 +10,11 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     const storagePlanets = window.localStorage.getItem('planets');
+    const storagePlanetIdList = window.localStorage.getItem('count');
 
     this.state = {
       loading: true,
-      planetIdList: [],
+      planetIdList: storagePlanetIdList ? JSON.parse(storagePlanetIdList) : [],
       currentRandomPlanet: null,
       planets: storagePlanets ? JSON.parse(storagePlanets) : {}
     };
@@ -36,6 +37,14 @@ export default class App extends Component {
           loading: false,
           planetIdList: this.createPlanetIdList(count)
         });
+        const { cacheOnStorage } = this.props;
+
+        if (cacheOnStorage) {
+          window.localStorage.setItem(
+            'count',
+            JSON.stringify(this.createPlanetIdList(this.state.planetIdList))
+          );
+        }
       })
       .catch(error => {
         console.log(error);
