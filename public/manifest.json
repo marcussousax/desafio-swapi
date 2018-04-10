@@ -1,16 +1,29 @@
 {
   "short_name": "Star Wars API",
   "name": "Star Wars API application",
+  "description":
+    "Prover uma boa experiência e interface para consulta aos dados relacionados ao universo Star Wars",
+  "lang": "en-US",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "./favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "app-logo.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "./app-logo.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "./app-logo@2x.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "./app-logo@3x.png",
+      "type": "image/png",
+      "sizes": "384x384"
     }
   ],
   "start_url": "./index.html",
