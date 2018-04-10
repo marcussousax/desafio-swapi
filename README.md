@@ -19,8 +19,8 @@ The application is based on CRA (Create React App). It was started with a challe
 ## Browser Support
 
 ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
---- | --- | --- | --- | --- | ---
-Latest ✔ | Latest ✔ | Latest ✔ | 11+ ✔ | 9.1+ ✔ | Latest ✔
+--- | --- | --- | ---
+Latest ✔ | Latest ✔ | Latest ✔ | 9.1+ ✔
 
 ---
 #### **README: CREATE REACT APP**
