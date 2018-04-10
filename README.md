@@ -1,6 +1,6 @@
 ## STAR WARS - PLANET API
 
-The application is based on CRA (Create React App). It was started with a challenge purpose, but now my goal is to provide a complete Star Wars API consult app, always focusing on Design.
+This application is based on CRA (Create React App). It was started with a challenge purpose, but now my goal is to provide a complete Star Wars API consult app, always focusing on Design and Experience.
 
 <strong><a href="http://marcussousa.com/desafio-swapi" target="blank">View Demo</a> | <a href="https://github.com/marcussousax/desafio-swapi/archive/master.zip">Download ZIP</a></strong>
 
