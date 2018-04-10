@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NumberFormat from 'react-number-format';
 import styled from 'styled-components';
 
-const bkgCard = require('./bkg-card.jpg');
+const BKG_CARD = require('./bkg-card.jpg');
 
 class Card extends Component {
   componentDidMount() {
@@ -38,7 +38,7 @@ class Card extends Component {
 const StyledCard = styled.div`
   -webkit-transition: 100ms all ease;
   background-size: 99%;
-  background: #282226 url(${bkgCard}) no-repeat center;
+  background: #282226 url(${BKG_CARD}) no-repeat center;
   border: 5px solid #faf8df;
   box-shadow: 0 0 30px 0px #000;
   height: 640px;
@@ -155,7 +155,7 @@ const Climate = Meta.extend`
 `;
 
 const LogoCard = styled.div`
-  background: transparent url(${bkgCard}) repeat -10px 30px;
+  background: transparent url(${BKG_CARD}) repeat -10px 30px;
   background-size: cover;
   border-radius: 10px 0 0 0;
   bottom: 3px;
