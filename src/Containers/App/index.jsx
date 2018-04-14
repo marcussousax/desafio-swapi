@@ -10,10 +10,13 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     const storagePlanets = window.localStorage.getItem('planets');
+    const storagePlanetIdList = window.localStorage.getItem('planetIdList');
 
     this.state = {
       loading: true,
-      planetIdList: [],
+      planetIdList: storagePlanetIdList
+        ? JSON.parse(storagePlanetIdList)
+        : null,
       currentRandomPlanet: null,
       planets: storagePlanets ? JSON.parse(storagePlanets) : {}
     };
@@ -25,7 +28,20 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    this.getPlanetsCount(this.props);
+    this.checkIfPlanetsOnStorage();
+  }
+
+  checkIfPlanetsOnStorage() {
+    const { planetIdList } = this.state;
+
+    if (planetIdList) {
+      this.setState({
+        loading: false,
+        planetIdList: planetIdList
+      });
+      return;
+    }
+    return this.getPlanetsCount(this.props);
   }
 
   getPlanetsCount = ({ apiURL }) => {
@@ -43,9 +59,16 @@ export default class App extends Component {
   };
 
   createPlanetIdList(planetsCount) {
-    return Array(planetsCount)
+    const { cacheOnStorage } = this.props;
+    const planetIdList = Array(planetsCount)
       .fill()
       .map((e, i) => i + 1);
+
+    if (cacheOnStorage) {
+      window.localStorage.setItem('planetIdList', JSON.stringify(planetIdList));
+    }
+
+    return planetIdList;
   }
 
   getPlanet = () => {
