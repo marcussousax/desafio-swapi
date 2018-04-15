@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NumberFormat from 'react-number-format';
 import styled from 'styled-components';
 
-const BKG_CARD = require('./bkg-card.jpg');
+import BKG_CARD from './bkg-card.jpg';
 
 class Card extends Component {
   componentDidMount() {

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { AppLogo, Button, Card } from 'Components';
 
-const BKG_APP = require('./bkg-app.svg');
+import BKG_APP from './bkg-app.svg';
 
 export default class App extends Component {
   constructor(props) {
@@ -52,15 +52,6 @@ export default class App extends Component {
           loading: false,
           planetIdList: this.createPlanetIdList(count)
         });
-
-        const { cacheOnStorage } = this.props;
-
-        if (cacheOnStorage) {
-          window.localStorage.setItem(
-            'count',
-            JSON.stringify(this.createPlanetIdList(this.state.planetIdList))
-          );
-        }
       })
       .catch(error => {
         console.log(error);
@@ -135,7 +126,7 @@ export default class App extends Component {
       <StyledApp>
         <Content>
           <Header>
-            <AppLogo title="star wars" subtitle="desafio b2w" />
+            <AppLogo title="star wars" subtitle="desafio swapi" />
           </Header>
           {currentRandomPlanet && (
             <Card loading={loading} planet={currentRandomPlanet} />
