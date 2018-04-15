@@ -164,6 +164,7 @@ const LogoCard = styled.div`
   padding: 0 10px 1px 10px;
   position: absolute;
   right: 3px;
+  user-select: none;
 `;
 
 export default Card;

@@ -16,6 +16,7 @@ const Container = styled.div`
   font-family: 'StarWars', sans-serif;
   text-align: center;
   width: 150px;
+  user-select: none;
 `;
 
 const Title = styled.h1`

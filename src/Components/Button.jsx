@@ -27,6 +27,8 @@ const StyledButton = styled.button`
     padding: 0;
     transition: box-shadow 0.1s ease-in-out;
     width: 200px;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   & span {
