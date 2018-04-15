@@ -26,13 +26,14 @@
       "sizes": "384x384"
     },
     {
-      "src": "app-logo.png",
+      "src": "./app-logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "./index.html",
   "display": "fullscreen",
+  "orientation": "portrait",
   "theme_color": "#ffe115 ",
   "background_color": "#282226 "
 }
