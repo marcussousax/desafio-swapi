@@ -52,6 +52,15 @@ export default class App extends Component {
           loading: false,
           planetIdList: this.createPlanetIdList(count)
         });
+
+        const { cacheOnStorage } = this.props;
+
+        if (cacheOnStorage) {
+          window.localStorage.setItem(
+            'count',
+            JSON.stringify(this.createPlanetIdList(this.state.planetIdList))
+          );
+        }
       })
       .catch(error => {
         console.log(error);
@@ -164,7 +173,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: row;
   flex: 1;
-  justify-content: space-evenly;
+  justify-content: space-around;
   @media (max-width: 768px) {
     flex-direction: column;
   }

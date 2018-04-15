@@ -1,3 +1,30 @@
+## STAR WARS - PLANET API
+
+It was started with a challenge purpose, but now my goal is to provide a complete Star Wars API consult app, always focusing on Design and Experience.
+
+<strong><a href="http://marcussousa.com/desafio-swapi" target="blank">View Demo</a> | <a href="https://github.com/marcussousax/desafio-swapi/archive/master.zip">Download ZIP</a></strong>
+
+## Commands
+
+* ### `yarn start` - to start on localhost:3000
+* ### `yarn build` - to generate static files on build folder
+
+## Features
+
+* **Responsive**
+* **Cross Browser**
+* **PWA** (Progressive Webapp)
+* **LocalStorage**
+
+## Browser Support
+
+![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- | ---
+Latest ✔ | Latest ✔ | Latest ✔ | 9.1+ ✔
+
+---
+#### **README: CREATE REACT APP**
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -300,7 +327,11 @@ In the WebStorm menu `Run` select `Edit Configurations...`. Then click `+` and s
 
 Start your app by running `npm start`, then press `^D` on macOS or `F9` on Windows and Linux or click the green debug icon to start debugging in WebStorm.
 
-The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine. 
+<<<<<<< HEAD
+The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine.
+=======
+The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine.
+>>>>>>> f4a606cbe633dd73e7f109d38289cf1cf206ecc4
 
 ## Formatting Code Automatically
 
@@ -1675,7 +1706,11 @@ Use the following [`launch.json`](https://code.visualstudio.com/docs/editor/debu
       "name": "Debug CRA Tests",
       "type": "node",
       "request": "launch",
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",      
+<<<<<<< HEAD
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",
+=======
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",
+>>>>>>> f4a606cbe633dd73e7f109d38289cf1cf206ecc4
       "args": [
         "test",
         "--runInBand",
@@ -1989,7 +2024,11 @@ If you’re using [Apache HTTP Server](https://httpd.apache.org/), you need to c
     RewriteRule ^ index.html [QSA,L]
 ```
 
-It will get copied to the `build` folder when you run `npm run build`. 
+<<<<<<< HEAD
+It will get copied to the `build` folder when you run `npm run build`.
+=======
+It will get copied to the `build` folder when you run `npm run build`.
+>>>>>>> f4a606cbe633dd73e7f109d38289cf1cf206ecc4
 
 If you’re using [Apache Tomcat](http://tomcat.apache.org/), you need to follow [this Stack Overflow answer](https://stackoverflow.com/a/41249464/4878474).
 
@@ -2429,7 +2468,11 @@ To resolve this:
 1. Open an issue on the dependency's issue tracker and ask that the package be published pre-compiled.
   * Note: Create React App can consume both CommonJS and ES modules. For Node.js compatibility, it is recommended that the main entry point is CommonJS. However, they can optionally provide an ES module entry point with the `module` field in `package.json`. Note that **even if a library provides an ES Modules version, it should still precompile other ES6 features to ES5 if it intends to support older browsers**.
 
-2. Fork the package and publish a corrected version yourself. 
+<<<<<<< HEAD
+2. Fork the package and publish a corrected version yourself.
+=======
+2. Fork the package and publish a corrected version yourself.
+>>>>>>> f4a606cbe633dd73e7f109d38289cf1cf206ecc4
 
 3. If the dependency is small enough, copy it to your `src/` folder and treat it as application code.
 
