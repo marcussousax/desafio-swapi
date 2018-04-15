@@ -5,19 +5,15 @@ import styled from 'styled-components';
 import BKG_CARD from './bkg-card.jpg';
 
 class Card extends Component {
-  componentDidMount() {
-    return this.setState({
-      loading: false
-    });
-  }
-
   render() {
     const { planet, loading } = this.props;
     return (
       <StyledCard loading={loading}>
         <Content>
-          <Planet films={planet.films}>{planet.name}</Planet>
-          <Population>
+          <Planet label="planet" films={planet.films}>
+            {planet.name}
+          </Planet>
+          <Meta label="population">
             <NumberFormat
               value={planet.population}
               displayType={'text'}
@@ -25,9 +21,9 @@ class Card extends Component {
               thousandSeparator="."
               decimalSeparator=","
             />
-          </Population>
-          <Terrain>{planet.terrain}</Terrain>
-          <Climate>{planet.climate}</Climate>
+          </Meta>
+          <Meta label="terrain">{planet.terrain}</Meta>
+          <Meta label="climate">{planet.climate}</Meta>
         </Content>
         <LogoCard>star wars</LogoCard>
       </StyledCard>
@@ -53,9 +49,6 @@ const StyledCard = styled.div`
     width: 70%;
   }
 
-  &:after {
-    content: ' ';
-  }
   &:before {
     border: solid #84786c;
     border-width: 0 2px 2px 0;
@@ -93,7 +86,7 @@ const Planet = styled.h2`
   }
 
   &:before {
-    content: "planet";
+    content: '${props => props.label}';
     font-family: "StarWars", sans-serif;
     font-size: 20px;
     line-height: 20px;
@@ -125,6 +118,7 @@ const Meta = styled.p`
   margin: 10px 0;
   text-transform: none;
   &:after {
+    content: '${props => props.label}';
     display: flex;
     flex-direction: column;
     font-size: 12px;
@@ -133,24 +127,6 @@ const Meta = styled.p`
     font-family: 'SourceSansPro', sans-serif;
     text-transform: uppercase;
     text-indent: 3px;
-  }
-`;
-
-const Population = Meta.extend`
-  &:after {
-    content: 'Population';
-  }
-`;
-
-const Terrain = Meta.extend`
-  &:after {
-    content: 'Terrain';
-  }
-`;
-
-const Climate = Meta.extend`
-  &:after {
-    content: 'Climate';
   }
 `;
 
