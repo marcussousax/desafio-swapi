@@ -37,7 +37,7 @@ export default class App extends Component {
     if (planetIdList) {
       this.setState({
         loading: false,
-        planetIdList: planetIdList
+        planetIdList
       });
       return;
     }
