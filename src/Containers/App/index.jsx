@@ -24,7 +24,7 @@ export default class App extends Component {
 
   static defaultProps = {
     cacheOnStorage: true,
-    apiURL: 'https://swapi.co/api/planets/'
+    apiURL: 'https://swapi.dev/api/planets/'
   };
 
   componentDidMount() {
