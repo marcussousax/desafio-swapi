@@ -1,6 +1,6 @@
 ## STAR WARS - PLANET API
 
-It was started with a challenge purpose, but now my goal is to provide a complete Star Wars API consult app, always focusing on Design and Experience.
+Display random planet cards using the Star Wars API. 
 
 <strong><a href="http://marcussousa.com/desafio-swapi" target="blank">View Demo</a> | <a href="https://github.com/marcussousax/desafio-swapi/archive/master.zip">Download ZIP</a></strong>
 
@@ -13,7 +13,7 @@ It was started with a challenge purpose, but now my goal is to provide a complet
 
 * **Responsive**
 * **Cross Browser**
-* **PWA** (Progressive Webapp)
+* **PWA**
 * **LocalStorage**
 
 ## Browser Support
