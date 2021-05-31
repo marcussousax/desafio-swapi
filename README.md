@@ -1,8 +1,8 @@
-## STAR WARS - PLANET API
+## STAR WARS - RANDOM PLANETS
 
 Display random planet cards using the Star Wars API. 
 
-<strong><a href="http://marcussousa.com/desafio-swapi" target="blank">View Demo</a> | <a href="https://github.com/marcussousax/desafio-swapi/archive/master.zip">Download ZIP</a></strong>
+[Live Demo](https://marcussousax.github.io/star-wars-random-cards/)
 
 ## Commands
 
