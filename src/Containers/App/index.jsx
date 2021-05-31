@@ -126,7 +126,7 @@ export default class App extends Component {
       <StyledApp>
         <Content>
           <Header>
-            <AppLogo title="star wars" subtitle="desafio swapi" />
+            <AppLogo title="star wars" subtitle="Random Planets" />
           </Header>
           {currentRandomPlanet && (
             <Card loading={loading} planet={currentRandomPlanet} />

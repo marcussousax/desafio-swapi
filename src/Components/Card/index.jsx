@@ -7,6 +7,7 @@ import BKG_CARD from './bkg-card.jpg';
 class Card extends Component {
   render() {
     const { planet, loading } = this.props;
+    debugger
     return (
       <StyledCard loading={loading}>
         <Content>
@@ -97,7 +98,7 @@ const Planet = styled.h2`
     }
   }
   &:after {
-    content: "Featured in ${props => props.films.length} films";
+    content: "${({films}) => films.length !== 0 ? `Featured in ${films.length} movie${films.length !== 1 ? 's': ''} ` : null }";
     font-family: "SourceSansPro", sans-serif;
     font-size: 12px;
     font-weight: 700;

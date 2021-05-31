@@ -1,8 +1,8 @@
 {
-  "short_name": "Star Wars API",
-  "name": "Star Wars API",
+  "short_name": "SW Random Planets",
+  "name": "Star Wars Random Planets",
   "description":
-    "Prover uma boa experiência e interface para consulta aos dados relacionados ao universo Star Wars",
+    "Exibe informações de Planetas de forma aleatória.",
   "lang": "en-US",
   "icons": [
     {
